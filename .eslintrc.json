@@ -1,0 +1,78 @@
+{
+  "root": true,
+  "env": { "browser": true, "node": true, "es2021": true, "mocha": true },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "standard",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:wdio/recommended",
+    "plugin:promise/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "plugins": ["@typescript-eslint", "import", "promise"],
+  "settings": {
+    "import/resolver": {
+      "typescript": { "project": "./tsconfig.json" }
+    }
+  },
+  "rules": {
+    // styling
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "indent": ["error", 4],
+    "space-before-function-paren": ["error", "always"],
+    "key-spacing": ["error", { "align": {}, "multiLine": {} }],
+    "no-multi-spaces": ["error", {
+      "exceptions": {
+        "VariableDeclarator": true,
+        "BinaryExpression": true,
+        "ImportDeclaration": true,
+        "Property": true
+      }
+    }],
+    "eol-last": ["error", "always"],
+
+    // TS overrides
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/no-null-assertion": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-function-return-type": "warn",
+
+    // WDIO best‐practices
+    "wdio/no-debug": "error",
+    "wdio/no-pause": "warn",
+    "wdio/await-expect": "error",
+
+    // promise hygiene
+    "promise/always-return": "error",
+    "promise/no-return-wrap": "error",
+    "promise/catch-or-return": "error",
+    "promise/no-nesting": "warn",
+    "promise/no-promise-in-callback": "warn",
+
+    // void resolving
+    "no-void": ["error", { "allowAsStatement": true }],
+
+    // import order & alias‐only policy
+    "import/order": "off",
+    "no-restricted-imports": "off",
+    "simple-import-sort/exports": "error"
+  },
+  "overrides": [
+    {
+      "files": ["**/src/**/*.ts"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+      }
+    }
+  ]
+}

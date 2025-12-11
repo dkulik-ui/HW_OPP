@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "moduleResolution": "node10",
+        "allowSyntheticDefaultImports": true,
+        "noEmit": false,
+        "sourceMap": true,
+        "skipLibCheck": true,
+        "target": "esnext",
+        "strictNullChecks": true,
+
+        "outDir": "dist",
+        "rootDir": ".",
+        "baseUrl": ".",
+        "types": [
+            "node"
+        ]
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "dist/**/*"
+    ],
+    "tsc-alias": {
+        "resolveFullPaths": true,
+        "verbose": false
+    }
+}
