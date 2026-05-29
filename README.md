@@ -9,6 +9,7 @@
 * Control Work 1
 * Module Work 1
 * Control Work 2
+* Module Work 2
 
 ### Запуск завданнь
 
